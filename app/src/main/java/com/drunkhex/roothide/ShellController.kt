@@ -1,8 +1,9 @@
 package com.drunkhex.roothide
 
-import android.util.Log
-import java.io.*
-import java.util.function.LongBinaryOperator
+import java.io.BufferedReader
+import java.io.BufferedWriter
+import java.io.InputStreamReader
+import java.io.OutputStreamWriter
 
 class ShellController(
     shellPath: String,
