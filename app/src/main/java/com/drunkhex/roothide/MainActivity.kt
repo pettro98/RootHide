@@ -1,19 +1,12 @@
 package com.drunkhex.roothide
 
+import android.app.Activity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 
-/**
- * Метод выполняет скрипты shell в отдельном потоке.
- *
- * @param command shell скрипт.
- */
-
-class MainActivity : AppCompatActivity() {
+class MainActivity : Activity() {
     private lateinit var m_textView: TextView
     private lateinit var m_button: Button
     private lateinit var m_textField: TextView
@@ -29,10 +22,10 @@ class MainActivity : AppCompatActivity() {
         f_initShell()
 
         setContentView(R.layout.activity_main)
-        m_textView = findViewById(R.id.textView)
-        m_button = findViewById(R.id.button)
+        m_textView = findViewById(R.id.textView) as TextView
+        m_button = findViewById(R.id.button) as Button
         m_button.setOnClickListener(::changeSuHiddenState)
-        m_textField = findViewById(R.id.textfield)
+        m_textField = findViewById(R.id.textfield) as TextView
 
         f_setSuHiddenText(m_suHidden!!) // either throws before initialization or has boolean value
         m_textField.append("INF: SU status: " + if (m_suHidden!!) "hidden\n" else "not hidden\n")
